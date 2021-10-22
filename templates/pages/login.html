@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Log in</h1>
+    <div class="row text-center no-gutters">
+        <div class="col-6 offset-3">
+            <form action="{% url 'tekshirish' %}" method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="">Login</label>
+                    <input type="text" class="form-control" name="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+
+                <input type="submit" value="Log In" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

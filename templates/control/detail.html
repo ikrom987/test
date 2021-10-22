@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{product.title}}</h1>
+    <p>Category: {{product.category.title}}</p>
+    <p>Price: {{product.price}}</p>
+    <p>description: {{product.description}}</p>
+
+    <a href="{% url 'control' %}" class="btn btn-secondary">Back to panel</a>
+    <form action="{% url 'control_delete' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{product.id}}">
+        <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+
+{% endblock content %}
